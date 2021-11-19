@@ -1,0 +1,11 @@
+[package]
+name = "keepalive-proxy"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "1.14", features = ["rt", "macros", "net", "io-util"] }
+hyper = { version = "0.14", features = ["client", "server", "http1", "tcp"] }
+lazy_static = "1.4"
