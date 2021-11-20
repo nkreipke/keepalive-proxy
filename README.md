@@ -14,7 +14,7 @@ The proxy uses a connection pool to keep outgoing connections open for a few sec
 **How does it perform?** On a 500 MBit/s downlink, I have observed speedups of around 20% with just the proxy alone. By additionally tuning the initial congestion and receive window sizes for the loopback device, the mean throughput can be more than doubled.
 
 ```bash
-ip route change 127.0.0.1 dev lo table local initcwnd 96 initrwnd 96
+ip route change local 127.0.0.1 dev lo table local proto kernel src 127.0.0.1 initcwnd 96 initrwnd 96
 ```
 
 *Note: I have determined my "optimal" window size of 96 by experimentation, however it probably is not valid for all possible use cases. For best results I recommend you do your own testing.*
